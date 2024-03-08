@@ -7,6 +7,10 @@
 - To view historical data, run `JKC.py`.
 - If you hover over the date on the price line, it will show either the raw price or sale price.
 
+- ![Screenshot 2024-03-08 at 9 30 46 AM](https://github.com/joel-1080p/JKC/assets/156847809/a52284c7-2d4b-43c9-8876-cb7f7d351038)
+- ![Screenshot 2024-03-08 at 9 31 14 AM](https://github.com/joel-1080p/JKC/assets/156847809/f2cc39e3-c654-4690-8105-ab8aa24515b6)
+
+
 ### HOW IT WORKS
 - `get_JKC_price.py` goes to the URL looks for today's price.
 - It also scans for sale prices like '3 for $7' and stores this infomation as well.
