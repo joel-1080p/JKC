@@ -1,4 +1,4 @@
-# JKC (Jalapeno Kettle Chips) Web Scraper
+# JKC (Jalapeño Kettle Chips) Web Scraper
 
 ### RUNNING JKC
 - Shange path on both `get_JKC_price.py` and `JKC.py` to whatever directory you stored the `data.csv` in.
