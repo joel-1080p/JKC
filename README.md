@@ -32,4 +32,4 @@
 
 Please drop me a note with any feedback you have.
 
-**Ran Joel**
+**Joel**
