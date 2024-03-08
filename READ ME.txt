@@ -1,0 +1,11 @@
+CREATE EXE
+Open cmd and type	
+	cd to directory
+	pyinstaller 
+		pyinstaller --onefile --windowed --icon=icon.png get_JKC_price.py
+		pyinstaller --onefile --windowed --icon=icon.png JKC.py
+Copy the exe files and place them in the executables directory
+Open Actual Installer
+Choose Free
+Unser Source Directory, choose exceutables diectory
+
