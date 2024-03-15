@@ -98,7 +98,7 @@ for row in html_output:
     
 
 # Opens the file in the Documents folder and appends new data to it.
-# First if writes non-sale price, while sencond if statement writes '2 for 1' special.
+# First if writes non-sale price, while second if statement writes '2 for 1' special.
 with open(root_folder + 'data.csv', 'a') as f:
     if full_price == ' ':
         f.write(f"{today.strftime('%m/%d/%Y')},{str(final_price)},{full_price}\n")
