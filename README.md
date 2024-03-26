@@ -31,8 +31,7 @@
 ### Requirements
 
 -   [Python](https://www.python.org) \>= 2.7, 3.4+
--   [Pandas](https://github.com/pydata/pandas) \>= 1.3.0
--   [Numpy](http://www.numpy.org) \>= 1.16.5
+-   [Selenium](https://www.selenium.dev/) \>= 4.8
 
 ### P.S.
 
