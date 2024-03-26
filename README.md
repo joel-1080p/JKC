@@ -28,6 +28,12 @@
 - When creating the exe, it has issues pulling the data.
 - I believe this issue is caused with the chrome driver.
 
+### Requirements
+
+-   [Python](https://www.python.org) \>= 2.7, 3.4+
+-   [Pandas](https://github.com/pydata/pandas) \>= 1.3.0
+-   [Numpy](http://www.numpy.org) \>= 1.16.5
+
 ### P.S.
 
 Please drop me a note with any feedback you have.
