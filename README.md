@@ -10,7 +10,7 @@
 - When you hover over the date on the price line, it will show you the price.
 - If you tap or click on the price, it will show you if it's a sale price.
   
-![Screenshot 2024-05-10 at 7 53 50 AM](https://github.com/joel-1080p/JKC/assets/156847809/374a0dba-fd6b-4da8-9552-9f5e90f2a857)
+![Screenshot 2024-05-10 at 7 53 50 AM](https://github.com/joel-1080p/JKC/assets/156847809/ff603c75-5cce-4553-9314-afd3478abfce)
 ![Screenshot 2024-05-10 at 7 54 02 AM](https://github.com/joel-1080p/JKC/assets/156847809/e0be64b0-2597-4ca4-a163-090b909bd840)
 
 
