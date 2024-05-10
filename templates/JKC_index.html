@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>SSE : JKC</title>
+
+        <!-- Includes ApexCharts CSS -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/apexcharts@latest/dist/apexcharts.min.css">
+
+    </head>
+    <body>
+        <!-- Include ApexCharts JavaScript -->
+        <script src="https://cdn.jsdelivr.net/npm/apexcharts@latest"></script>
+
+        <!-- Chart Container -->
+        <div id="chart"></div>
+
+        <script>
+            // Get data from Flask route.
+            var data = {{ data|tojson }};
+
+            // Extract dates, prices, and notes from backend json.
+            var dates = data.map(function(row) {
+                return row['date'];
+            });
+            var prices = data.map(function(row) {
+                return parseFloat(row['price']);
+            });
+            var notes = data.map(function(row) {
+                return row['notes'];
+            });
+
+            // Min and max of the y axis.
+            var graph_y_min = Math.min(...prices) - 1;
+            var graph_y_max = Math.ceil(Math.max(...prices));
+
+            // Sets the initial zoom range of 30 days back.
+            var initial_x_max = new Date(dates[dates.length - 1]);
+            var initial_x_min = new Date(dates[dates.length - 30]);
+            var initial_x_range = initial_x_max - initial_x_min;
+
+            // Gets device width.
+            var device_width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
+
+            // Chart options.
+            var options = {
+                chart: {
+                    type: 'area',
+                    stacked: false,
+                    width: device_width - 20,    // Uses device width plus a 20 pxl buffer.
+                    height: 500,
+                    toolbar: {
+                        autoSelected: 'pan',    // Sets pan as default tool to load.
+                    },
+                    zoom: {
+                        type: 'x',
+                        enabled: true,
+                    },
+                    events:{
+
+                        // Sets the 'home' button to reset to full chart.
+                        beforeZoom: function(ctx){
+                            ctx.w.config.xaxis.range = undefined
+                        },
+
+                        // Gets index of price clicked.
+                        markerClick: function(event, chartContext, config) {
+
+                            // If the notes has something in it.
+                            // Formats the data before sending to HTML.
+                            if(isNaN(notes[config.dataPointIndex])){
+                                var css = '<p style="font-size:24px;color:red;border:2px solid #ff6666;padding 10px;border-radius:5px;display:inline-block;">'
+                                document.getElementById("sale_price").innerHTML = css + 'SALE : ' + notes[config.dataPointIndex];
+                            }
+
+                            // If the notes does not have anything.
+                            else{
+                                document.getElementById("sale_price").innerHTML = '';
+                            }
+                        },
+                    },
+                },
+
+                // Sets the data points as the prices.
+                series: [{
+                    name: 'JKC',
+                    data: prices
+                }],
+
+                // Removes the prices from the line chart top.
+                dataLabels: {
+                    enabled: false
+                },
+
+                title: {
+                    text: 'ShopRite Stock Exchange : JKC',
+                    align: 'left'
+                },
+
+                // Gradient fill under line.
+                fill: {
+                    colors: ['#5C8B3E'],
+                    type: 'gradient',
+                    gradient: {
+                        shadeIntensity: 1,
+                        inverseColors: false,
+                        opacityFrom: 0.5,
+                        opacityTo: 0,
+                        stops: [0, 90, 100]
+                    },
+                },
+
+                // Attributes for the y axis.
+                yaxis: {
+                    min: graph_y_min,
+                    max: graph_y_max,
+                    title: {
+                        text: 'Price'
+                    }
+                },
+
+                    // Attributes for the x axis.
+                xaxis: {
+                    type: 'datetime',
+                    categories: dates,
+                    range: initial_x_range,       // Sets the initial zoom range of 30 days back. Set on line 34
+                },
+
+                // Line attributes.
+                stroke:{
+                    width: 5,
+                    colors: ['#5C8B3E'],
+                },
+            };
+
+            // Initialize chart.
+            var chart = new ApexCharts(document.querySelector("#chart"), options);
+            chart.render();
+        </script>
+
+        <!-- If there is a note, it will center it. -->
+        <center>
+            <p id="sale_price"></p>
+        </center>
+    </body>
+</html>
