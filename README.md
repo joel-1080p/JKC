@@ -1,4 +1,4 @@
-# JKC (Jalapeño Kettle Chips) Web Scraper
+# JKC (Jalapeño Kettle Chips) Web Scraper 2.0
 
 ![IMG_1526](https://github.com/joel-1080p/JKC/assets/156847809/f0dd82fb-ed1f-4cc0-aca5-3f480cb0d7a0)
 
@@ -6,11 +6,12 @@
 - Change path on both `get_JKC_price.py` and `JKC.py` to whatever directory you stored the `data.csv` in.
 - Run `get_JKC_price.py` to get the latest price from https://www.shoprite.com/sm/pickup/rsid/3000/product/kettle-brand-jalapeo-potato-chips-75-oz-00084114902047
 - The script will get the current JKC price and store it in `data.csv`.
-- To view historical data, run `JKC.py`.
-- If you hover over the date on the price line, it will show either the raw price or sale price.
+- To view historical data, go to local ip 127.0.0.1
+- When you hover over the date on the price line, it will show you the price.
+- If you tap or click on the price, it will show you if it's a sale price.
+  
+![Screenshot 2024-05-10 at 7 53 50 AM](https://github.com/joel-1080p/JKC/assets/156847809/7705640f-3589-4502-8cb6-b7c2feddf96f)
 
-![Screenshot 2024-03-08 at 9 30 46 AM](https://github.com/joel-1080p/JKC/assets/156847809/a52284c7-2d4b-43c9-8876-cb7f7d351038)
-![Screenshot 2024-03-08 at 9 31 14 AM](https://github.com/joel-1080p/JKC/assets/156847809/f2cc39e3-c654-4690-8105-ab8aa24515b6)
 
 
 ## HOW IT WORKS
