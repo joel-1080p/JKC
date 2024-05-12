@@ -2,6 +2,7 @@ from selenium.webdriver.common.by import By
 from datetime import date
 import sys
 from selenium import webdriver
+import config
 
 
 # URL for ShopRite KETTLE BRAND Jalapeno, Potato Chips, 7.5 Ounce
@@ -30,7 +31,7 @@ final_price = f"{today.strftime('%m/%d/%Y')},{price},{deal_elements[0].text}\n"
 
 # Opens the file in the Documents folder and appends new data to it.
 # First if writes non-sale price, while second if statement writes '2 for 1' special.
-with open('C:/Users/joel/Documents/Freelance/Clients/ChrisLenk/Kettle2.0/source_code/data.csv', 'a') as f:
+with open(config.csv_path, 'a') as f:
     f.write(final_price)
 
 # Closes chrome driver and browser.
