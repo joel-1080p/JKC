@@ -1,5 +1,6 @@
 from flask import Flask, render_template
 import csv
+import config
 
 app = Flask(__name__)
 
@@ -9,7 +10,7 @@ def JKC():
 
     # Read the CSV file and sends data.
     data = []
-    with open('data.csv', 'r') as file:
+    with open(config.csv_path, 'r') as file:
         csv_reader = csv.DictReader(file)
         for row in csv_reader:
 
